@@ -60,3 +60,7 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+/hacks_mbof/settings/local.py
+/hacks_mbof/extras/
+/.vagrant
