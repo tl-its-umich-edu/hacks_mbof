@@ -10,7 +10,6 @@ Vagrant.configure(2) do |config|
     config.vm.network "forwarded_port", guest: 22,   host: 10022
     config.vm.network "forwarded_port", guest: 8000, host: 18000
     config.vm.network "forwarded_port", guest: 80,   host: 10080
-    #config.vm.network "forwarded_port", guest: 3306, host: 13306
     config.vm.network "forwarded_port", guest: 9000, host: 19000
 
     config.vm.provision "shell", inline: <<-SHELL
@@ -24,18 +23,9 @@ Vagrant.configure(2) do |config|
         apt-get update
         apt-get dist-upgrade -y
 
-        # "debconf-set-selections" lines are need to prevent the mysql-server install from prompting for a password
-        #debconf-set-selections <<< 'mysql-server mysql-server/root_password password tlrocks'
-        #debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password tlrocks'
-
-        #apt-get --no-install-recommends install --yes mysql-server libmysqlclient-dev
         apt-get --no-install-recommends install --yes python-pip python-dev
         apt-get --no-install-recommends install --yes apache2 apache2-utils
         apt-get --no-install-recommends install --yes libldap2-dev libsasl2-dev
-
-        #echo -e "[mysqld]\nbind-address = 0.0.0.0" > /tmp/mysqld_bind_vagrant.cnf
-        #mv -f /tmp/mysqld_bind_vagrant.cnf /etc/mysql/conf.d/
-        #service mysql restart
 
         cat <<EOM > /etc/apache2/sites-available/001-se_proxy.conf
 <VirtualHost *:80>
@@ -55,17 +45,10 @@ EOM
 
         service apache2 restart
 
-        #echo "CREATE DATABASE IF NOT EXISTS hacks_mbof;" | mysql -v -u root -ptlrocks
-        #echo "GRANT ALL PRIVILEGES ON *.* TO 'hacks_mbof'@'%' IDENTIFIED BY 'hacks_mbof';" | mysql -v -u root -ptlrocks
-
         pip install coverage
         pip install -r requirements.txt
 
-        if [ ! -e hacks_mbof/settings/local.py ]; then
-            cp hacks_mbof/settings/local_sample.py hacks_mbof/settings/local.py
-        fi
-
-        echo "Installing Bower..."        
+        echo "Installing Bower..."
         cd /vagrant
         apt-get update
         apt-get install --yes git
