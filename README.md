@@ -9,5 +9,5 @@ If you know MBOF, you don't need to know anything else.
    - `vagrant up`
    - `vagrant ssh`
 0. Install Bower packages
-   - `cd /vagrant/hacks_mbof`
+   - `cd /vagrant/mbofui`
    - `bower install`
