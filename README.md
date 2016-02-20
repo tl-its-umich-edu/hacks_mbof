@@ -11,3 +11,10 @@ If you know MBOF, you don't need to know anything else.
 0. Install Bower packages
    - `cd /vagrant/mbofui`
    - `bower install`
+
+# Development
+0. Initialize and start app server
+    - `cd /vagrant`
+    - `python manage.py migrate`
+    - `python manage.py runserver`
+0. Browse to [http://localhost:18000/](http://localhost:18000/)
