@@ -12,7 +12,7 @@
     "angular-sanitize": "^1.4.7",
     "angular-touch": "^1.4.7",
     "jquery": "^2.1.4",
-    "bower-package": "*",
+    "bower-package": "*"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.7"
@@ -20,6 +20,6 @@
   "appPath": "app",
   "moduleName": "mbofuiApp",
   "resolutions": {
-    "angular": "^1.4.7",
+    "angular": "^1.4.7"
   }
 }
