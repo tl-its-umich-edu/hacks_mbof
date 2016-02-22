@@ -64,3 +64,4 @@ target/
 /hacks_mbof/settings/local.py
 /hacks_mbof/extras/
 /.vagrant
+*.sqlite3
