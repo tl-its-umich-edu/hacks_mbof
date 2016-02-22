@@ -17,4 +17,4 @@ If you know MBOF, you don't need to know anything else.
     - `cd /vagrant`
     - `python manage.py migrate`
     - `python manage.py runserver`
-0. Browse to [http://localhost:18000/](http://localhost:18000/)
+0. Browse to [http://localhost:18000/mbof/](http://localhost:18000/mbof/)
