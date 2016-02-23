@@ -16,5 +16,8 @@ If you know MBOF, you don't need to know anything else.
 0. Initialize and start app server
     - `cd /vagrant`
     - `python manage.py migrate`
+    - `python manage.py loaddata mbof/fixtures/dev_data.json`
     - `python manage.py runserver`
-0. Browse to [http://localhost:18000/mbof/](http://localhost:18000/mbof/)
+0. Browse to...
+    - Rough UI: [http://localhost:18000/mbof/](http://localhost:18000/mbof/)
+    - DB admin: [http://localhost:18000/admin/](http://localhost:18000/admin/)
