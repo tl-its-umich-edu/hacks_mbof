@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+import mbof.views
 
 urlpatterns = [
+    url(r'^$', mbof.views.index, name='index'),
+
     url(r'^mbof/', include('mbof.urls')),
     url(r'^admin/', admin.site.urls),
 ]
