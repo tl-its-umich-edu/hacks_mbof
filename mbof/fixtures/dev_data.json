@@ -1,0 +1,101 @@
+[
+  {
+    "model": "mbof.role",
+    "pk": 1,
+    "fields": {
+      "code": "STU",
+      "description": "Student"
+    }
+  },
+  {
+    "model": "mbof.role",
+    "pk": 2,
+    "fields": {
+      "code": "FAC",
+      "description": "Faculty"
+    }
+  },
+  {
+    "model": "mbof.role",
+    "pk": 3,
+    "fields": {
+      "code": "STA",
+      "description": "Staff"
+    }
+  },
+  {
+    "model": "mbof.role",
+    "pk": 4,
+    "fields": {
+      "code": "OTH",
+      "description": "Other"
+    }
+  },
+  {
+    "model": "mbof.user",
+    "pk": 1,
+    "fields": {
+      "loginName": "bjensen",
+      "displayName": "Babs Jensen",
+      "surname": "Jensen",
+      "givenName": "Barbara",
+      "roles": 1
+    }
+  },
+  {
+    "model": "mbof.user",
+    "pk": 2,
+    "fields": {
+      "loginName": "fordp",
+      "displayName": "Ford Prefect",
+      "surname": "Prefect",
+      "givenName": "Ford",
+      "roles": 2
+    }
+  },
+  {
+    "model": "mbof.message",
+    "pk": 1,
+    "fields": {
+      "latitude": 42.277306,
+      "longitude": 96.256722,
+      "altitudeMeters": 254.0,
+      "messageText": "Watching for Vogons",
+      "postingTime": "2016-02-22T20:50:58Z",
+      "startTime": "2016-02-22T21:30:00Z",
+      "endTime": "2016-02-23T20:51:44Z",
+      "user": 2,
+      "likes": 0
+    }
+  },
+  {
+    "model": "mbof.message",
+    "pk": 2,
+    "fields": {
+      "latitude": 42.275267,
+      "longitude": -83.741606,
+      "altitudeMeters": 267.27,
+      "messageText": "Fun at the Union",
+      "postingTime": "2016-02-22T21:00:33Z",
+      "startTime": "2016-02-22T21:00:35Z",
+      "endTime": "2016-02-22T21:00:36Z",
+      "user": 1,
+      "likes": 0
+    }
+  },
+  {
+    "model": "mbof.message",
+    "pk": 3,
+    "fields": {
+      "latitude": 42.2755696,
+      "longitude": -83.7398206,
+      "altitudeMeters": 257.0,
+      "messageText": "Study the art",
+      "postingTime": "2016-02-22T23:39:29Z",
+      "startTime": "2016-02-22T23:39:31Z",
+      "endTime": "2016-02-22T23:39:33Z",
+      "user": 1,
+      "likes": 0
+    }
+  }
+]
