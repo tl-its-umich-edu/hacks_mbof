@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from rest_framework import viewsets
 
 from .models import Message, User
-from .serializers import UserSerializer
+from .serializers import MessageSerializer, UserSerializer
 
 
 def index(request):
@@ -34,3 +34,11 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all().order_by('surname')
     serializer_class = UserSerializer
+
+
+class MessageViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Message.objects.all().order_by('postingTime')
+    serializer_class = MessageSerializer
