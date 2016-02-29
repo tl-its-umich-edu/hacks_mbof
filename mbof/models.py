@@ -34,8 +34,24 @@ class Message(models.Model):
     postingTime = models.DateTimeField()
     startTime = models.DateTimeField()
     endTime = models.DateTimeField()
-    user = models.ForeignKey(User)
-    likes = models.IntegerField(default=0)
+    owner = models.ForeignKey(User)
+    participantCount = models.IntegerField(default=0)
+    hashtag = models.CharField(max_length=40, null=True)
+
+    def __str__(self):
+        return str(self.messageText) + ' (' + self.__class__.__name__ + ': ' + str(self.id) + ')'
+
+
+@python_2_unicode_compatible
+class Vote(models.Model):
+    VOTE_PLUS = '+1'
+    VOTE_MINUS = '-1'
+    message = models.ForeignKey(Message)
+    voter = models.ForeignKey(User)
+    vote = models.CharField(max_length=2, choices=(
+        (VOTE_PLUS, VOTE_PLUS),
+        (VOTE_MINUS, VOTE_MINUS),
+    ))
 
     def __str__(self):
         return str(self.messageText) + ' (' + self.__class__.__name__ + ': ' + str(self.id) + ')'
