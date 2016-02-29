@@ -28,3 +28,15 @@ If you know MBOF, you don't need to know anything else.
         - Messages: [http://localhost:18000/api/messages/](http://localhost:18000/api/messages/)
         - Users: [http://localhost:18000/api/users/](http://localhost:18000/api/users/)
     - DB admin: [http://localhost:18000/admin/](http://localhost:18000/admin/)
+
+## Update Data Fixtures ##
+
+This is the procedure to add dummy data to the fixture files.
+
+- Connect to the database in the Vagrant VM. (If MySQL DB is used, this can be done from your host system via the port defined in the Vagrant file.)
+- Delete all tables.
+- Run the migrations to recreate the tables: `python manage.py migrate`
+- Run the loaddata command to load existing fixtures: `python manage.py loaddata mbof/fixtures/dev_data.json`
+- Make changes to the database needed to exercise application features.
+- Save the changes to a fixture file: `python manage.py dumpdata --indent 4 mbof > mbof/fixtures/dev_data.json`
+- Commit the changes to the updated fixture file.
