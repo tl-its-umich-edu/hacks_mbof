@@ -12,6 +12,7 @@
     "angular-sanitize": "^1.4.7",
     "angular-touch": "^1.4.7",
     "jquery": "^2.1.4",
+    "angular-leaflet-directive": "^0.10.0",
     "bower-package": "*"
   },
   "devDependencies": {
