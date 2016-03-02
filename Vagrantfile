@@ -9,7 +9,6 @@ Vagrant.configure(2) do |config|
 
     config.vm.network "forwarded_port", guest: 8000, host: 18000
     config.vm.network "forwarded_port", guest: 80,   host: 10080
-    config.vm.network "forwarded_port", guest: 9000, host: 19000
 
     config.vm.provision "shell", inline: <<-SHELL
         set -xe
