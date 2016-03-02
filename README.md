@@ -1,5 +1,5 @@
 # hacks_mbof
-If you know MBOF, you don't need to know anything else.
+If you know M-BoF, you don't need to know anything else.
 
 # Setup
 
@@ -19,24 +19,27 @@ If you know MBOF, you don't need to know anything else.
     - `python manage.py loaddata mbof/fixtures/dev_data.json`
     - `python manage.py runserver`
 0. Browse to...
-    - Testing UI:
-        - Root (AKA BoF list): [http://localhost:18000/](http://localhost:18000/)
-        - BoF list: [http://localhost:18000/mbof/](http://localhost:18000/mbof/)
-        - BoF detail: [http://localhost:18000/mbof/1/](http://localhost:18000/mbof/1/)
+    - M-BoF homepage: [http://localhost:18000/](http://localhost:18000/)
     - REST API
-        - Root: [http://localhost:18000/api/](http://localhost:18000/api/)
+        - Root: [http://localhost:18000/api/](http://localhost:18000/api/) (Note trailing slash.)
         - Messages: [http://localhost:18000/api/messages/](http://localhost:18000/api/messages/)
         - Users: [http://localhost:18000/api/users/](http://localhost:18000/api/users/)
-    - DB admin: [http://localhost:18000/admin/](http://localhost:18000/admin/)
+    - Testing UI:
+        - BoF list: [http://localhost:18000/mbof/](http://localhost:18000/mbof/) (Note trailing slash.)
+        - BoF detail: [http://localhost:18000/mbof/1/](http://localhost:18000/mbof/1/)
+    - DB admin: [http://localhost:18000/admin/](http://localhost:18000/admin/) (Note trailing slash.)
 
 ## Update Data Fixtures ##
 
-This is the procedure to add dummy data to the fixture files.
+This is the procedure for updating the fixture files after adding dummy data to the DB.
 
-- Connect to the database in the Vagrant VM. (If MySQL DB is used, this can be done from your host system via the port defined in the Vagrant file.)
-- Delete all tables.
-- Run the migrations to recreate the tables: `python manage.py migrate`
-- Run the loaddata command to load existing fixtures: `python manage.py loaddata mbof/fixtures/dev_data.json`
-- Make changes to the database needed to exercise application features.
-- Save the changes to a fixture file: `python manage.py dumpdata --indent 4 mbof > mbof/fixtures/dev_data.json`
-- Commit the changes to the updated fixture file.
+0. Connect to the SQLite DB by opening the `db.sqlite3` file with a compatible client.  (If a MySQL DB is used for the project later, running in the Vagrant VM, the connection can be made from your host system via the forwarded port defined in the Vagrant file.)
+0. Delete all tables.
+0. Apply the migrations to recreate the tables:
+    - `python manage.py migrate`
+0. Load the existing fixtures:
+    - `python manage.py loaddata mbof/fixtures/dev_data.json`
+0. Make changes to the DB needed to exercise application features.
+0. Save the updated DB to a fixture file:
+    - `python manage.py dumpdata --indent 4 mbof > mbof/fixtures/dev_data.json`
+0. Commit the updated fixture file to the project.
