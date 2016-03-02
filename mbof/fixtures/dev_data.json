@@ -64,8 +64,7 @@
       "postingTime": "2016-02-22T20:50:58Z",
       "startTime": "2016-02-22T21:30:00Z",
       "endTime": "2016-02-23T20:51:44Z",
-      "owner": 2,
-      "likes": 0
+      "owner": 2
     }
   },
   {
@@ -79,8 +78,7 @@
       "postingTime": "2016-02-22T21:00:33Z",
       "startTime": "2016-02-22T21:00:35Z",
       "endTime": "2016-02-22T21:00:36Z",
-      "owner": 1,
-      "likes": 0
+      "owner": 1
     }
   },
   {
@@ -94,8 +92,7 @@
       "postingTime": "2016-02-22T23:39:29Z",
       "startTime": "2016-02-22T23:39:31Z",
       "endTime": "2016-02-22T23:39:33Z",
-      "owner": 1,
-      "likes": 0
+      "owner": 1
     }
   }
 ]
