@@ -15,7 +15,7 @@ class Role(models.Model):
 
 @python_2_unicode_compatible
 class User(models.Model):
-    loginName = models.CharField(max_length=80)
+    loginName = models.CharField(max_length=80, unique=True)
     displayName = models.CharField(max_length=120)
     surname = models.CharField(max_length=50)
     givenName = models.CharField(max_length=50)
