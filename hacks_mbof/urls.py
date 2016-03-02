@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.views.static import serve
 from rest_framework import routers
 
-# import mbof.views
+import mbof.urls
 from mbof import views
 
 router = routers.DefaultRouter()
@@ -29,8 +30,17 @@ urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
-    url(r'^$', views.index, name='index'),
-
-    url(r'^mbof/', include('mbof.urls')),
+    url(r'^mbof/', include(mbof.urls)),
     url(r'^admin/', admin.site.urls),
+
+    url(r'^$', serve, {
+        'path': '/index.html',
+        'document_root': 'mbofui/app',
+    }),
+    url(r'^bower_components/(?P<path>.*)$', serve, {
+        'document_root': 'mbofui/bower_components',
+    }),
+    url(r'^(?P<path>.*)$', serve, {
+        'document_root': 'mbofui/app',
+    }),
 ]

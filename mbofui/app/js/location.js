@@ -1,25 +1,29 @@
 'use strict';
 /* global angular*/
-(function() {
-
-    var mapBoffLocation = ['$window', function($window) {
-        var template = '<div class="alert alert-info status"><span id="status">Where are you?</span></div>' +
-            '<div id="map"></div>',
+(function () {
+    var mbofMapLocation = ['$window', function ($window) {
+        var template = '<div class="alert alert-info status"><span id="status">&nbsp;</span></div>' +
+                '<div id="map"></div>',
             mapContainer = null,
-            status = null;
+            statusBar = null,
+            statusText = null;
 
         function link(scope, elem, attrs) {
-            status = angular.element(document.getElementById('status'));
+            var statusElem = document.getElementById('status');
+            statusBar = angular.element(statusElem.parentNode);
+            statusText = angular.element(statusElem);
             mapContainer = angular.element(document.getElementById('map'));
 
             mapContainer.attr('style', 'height:' + scope.height + '%;width:' + scope.width + '%');
 
             $window.navigator.geolocation.getCurrentPosition(mapLocation, geoError);
-            
+
         }
 
         function mapLocation(pos) {
-            status.html('Ah - there you are!');
+            statusText.html('Ah - there you are!');
+            statusBar.attr('style', 'display:block;');
+
             var latlng = new google.maps.LatLng(pos.coords.latitude,
                 pos.coords.longitude);
             var options = {
@@ -46,11 +50,12 @@
                     "longitude": -83.738202
                 }
             })
-            if (error.__proto__.PERMISSION_DENIED ===1){
-                status.html('Lurker mode');
+            if (error.__proto__.PERMISSION_DENIED === 1) {
+                statusText.html('Lurker mode');
             } else {
-                status.html('Failed lookup ' + error.message);
+                statusText.html('Failed lookup ' + error.message);
             }
+            statusBar.attr('style', 'display:block;');
         }
 
         return {
@@ -64,7 +69,7 @@
 
     }];
 
-    angular.module('bofFinder', [])
-        .directive('mapBoff', mapBoffLocation);
 
+    angular.module('mbofuiApp', [])
+        .directive('mbofMap', mbofMapLocation);
 }());
