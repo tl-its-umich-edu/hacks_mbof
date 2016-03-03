@@ -19,7 +19,8 @@ class User(models.Model):
     displayName = models.CharField(max_length=120)
     surname = models.CharField(max_length=50)
     givenName = models.CharField(max_length=50)
-    roles = models.ForeignKey(Role)
+    aboutMe = models.CharField(max_length=2000, null=True)
+    roles = models.ForeignKey(Role, null=True)
 
     def __str__(self):
         return str(self.loginName) + ' (' + self.__class__.__name__ + ': ' + str(self.id) + ')'
