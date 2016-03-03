@@ -9,7 +9,7 @@ mbofuiApp.controller('mbofuiAppController', ['$scope', 'Bof', '$log', '$window',
         function posSuccess(pos) {
             $scope.coords = pos.coords;
             // serialize the inputs to create a URL
-            var url = '/messages?messageText=' + $scope.newMessageText +
+            var url = '/api/messages/?messageText=' + $scope.newMessageText +
                 '&startTime=' + $scope.newStartTime +
                 '&endTime=' + $scope.newEndTime +
                 '&latitude=' + $scope.coords.latitude +
