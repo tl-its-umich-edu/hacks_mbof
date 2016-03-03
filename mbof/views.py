@@ -30,16 +30,16 @@ def vote(request, messageId):
     return HttpResponse("You're voting on message %s." % messageId)
 
 
-def remoteUser(request):
-    return JsonResponse({'remoteUser': os.getenv('REMOTE_USER')})
-
-
 class UserViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
     queryset = User.objects.all().order_by('surname')
     serializer_class = UserSerializer
+
+
+class CurrentUserViewSet(UserViewSet):
+    queryset = User.objects.filter(loginName=os.getenv('REMOTE_USER')).order_by('surname')
 
 
 class MessageViewSet(viewsets.ModelViewSet):
