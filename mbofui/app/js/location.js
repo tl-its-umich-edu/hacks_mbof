@@ -70,6 +70,6 @@
     }];
 
 
-    angular.module('mbofuiApp', [])
-        .directive('mbofMap', mbofMapLocation);
+    
+    mbofuiApp.directive('mbofMap', mbofMapLocation);
 }());
