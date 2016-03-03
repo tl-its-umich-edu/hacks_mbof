@@ -1,98 +1,131 @@
 [
-  {
+{
     "model": "mbof.role",
     "pk": 1,
     "fields": {
-      "code": "STU",
-      "description": "Student"
+        "code": "STU",
+        "description": "Student"
     }
-  },
-  {
+},
+{
     "model": "mbof.role",
     "pk": 2,
     "fields": {
-      "code": "FAC",
-      "description": "Faculty"
+        "code": "FAC",
+        "description": "Faculty"
     }
-  },
-  {
+},
+{
     "model": "mbof.role",
     "pk": 3,
     "fields": {
-      "code": "STA",
-      "description": "Staff"
+        "code": "STA",
+        "description": "Staff"
     }
-  },
-  {
+},
+{
     "model": "mbof.role",
     "pk": 4,
     "fields": {
-      "code": "OTH",
-      "description": "Other"
+        "code": "OTH",
+        "description": "Other"
     }
-  },
-  {
+},
+{
     "model": "mbof.user",
-    "pk": 1,
+    "pk": "bjensen",
     "fields": {
-      "loginName": "bjensen",
-      "displayName": "Babs Jensen",
-      "surname": "Jensen",
-      "givenName": "Barbara",
-      "roles": 1
+        "displayName": "Babs Jensen",
+        "surname": "Jensen",
+        "givenName": "Barbara",
+        "aboutMe": null,
+        "roles": 1
     }
-  },
-  {
+},
+{
     "model": "mbof.user",
-    "pk": 2,
+    "pk": "dpgumby",
     "fields": {
-      "loginName": "fordp",
-      "displayName": "Ford Prefect",
-      "surname": "Prefect",
-      "givenName": "Ford",
-      "roles": 2
+        "displayName": "D.P. Gumby",
+        "surname": "Gumby",
+        "givenName": "D.P.",
+        "aboutMe": null,
+        "roles": 2
     }
-  },
-  {
+},
+{
+    "model": "mbof.user",
+    "pk": "fordp",
+    "fields": {
+        "displayName": "Ford Prefect",
+        "surname": "Prefect",
+        "givenName": "Ford",
+        "aboutMe": null,
+        "roles": 3
+    }
+},
+{
     "model": "mbof.message",
     "pk": 1,
     "fields": {
-      "latitude": 42.277306,
-      "longitude": 96.256722,
-      "altitudeMeters": 254.0,
-      "messageText": "Watching for Vogons",
-      "postingTime": "2016-02-22T20:50:58Z",
-      "startTime": "2016-02-22T21:30:00Z",
-      "endTime": "2016-02-23T20:51:44Z",
-      "owner": 2
+        "latitude": 42.277306,
+        "longitude": 96.256722,
+        "altitudeMeters": 254.0,
+        "messageText": "Watching for Vogons",
+        "postingTime": "2016-02-22T20:50:58Z",
+        "startTime": "2016-02-22T21:30:00Z",
+        "endTime": "2016-02-23T20:51:44Z",
+        "owner": "fordp",
+        "participantCount": 0,
+        "hashtag": null
     }
-  },
-  {
+},
+{
     "model": "mbof.message",
     "pk": 2,
     "fields": {
-      "latitude": 42.275267,
-      "longitude": -83.741606,
-      "altitudeMeters": 267.27,
-      "messageText": "Fun at the Union",
-      "postingTime": "2016-02-22T21:00:33Z",
-      "startTime": "2016-02-22T21:00:35Z",
-      "endTime": "2016-02-22T21:00:36Z",
-      "owner": 1
+        "latitude": 42.275267,
+        "longitude": -83.741606,
+        "altitudeMeters": 267.27,
+        "messageText": "Fun at the Union",
+        "postingTime": "2016-02-22T21:00:33Z",
+        "startTime": "2016-02-22T21:00:35Z",
+        "endTime": "2016-02-22T21:00:36Z",
+        "owner": "bjensen",
+        "participantCount": 0,
+        "hashtag": null
     }
-  },
-  {
+},
+{
     "model": "mbof.message",
     "pk": 3,
     "fields": {
-      "latitude": 42.2755696,
-      "longitude": -83.7398206,
-      "altitudeMeters": 257.0,
-      "messageText": "Study the art",
-      "postingTime": "2016-02-22T23:39:29Z",
-      "startTime": "2016-02-22T23:39:31Z",
-      "endTime": "2016-02-22T23:39:33Z",
-      "owner": 1
+        "latitude": 42.2755696,
+        "longitude": -83.7398206,
+        "altitudeMeters": 257.0,
+        "messageText": "Study the art",
+        "postingTime": "2016-02-22T23:39:29Z",
+        "startTime": "2016-02-22T23:39:31Z",
+        "endTime": "2016-02-22T23:39:33Z",
+        "owner": "bjensen",
+        "participantCount": 0,
+        "hashtag": null
     }
-  }
+},
+{
+    "model": "mbof.message",
+    "pk": 4,
+    "fields": {
+        "latitude": 42.2994081,
+        "longitude": -83.6621599,
+        "altitudeMeters": 245.0,
+        "messageText": "Flower arrangement demonstration.  More cry-manthesums needed.",
+        "postingTime": "2016-02-29T15:19:03Z",
+        "startTime": "2016-02-29T17:00:00Z",
+        "endTime": "2016-03-11T15:20:23Z",
+        "owner": "dpgumby",
+        "participantCount": 0,
+        "hashtag": "#botany"
+    }
+}
 ]
