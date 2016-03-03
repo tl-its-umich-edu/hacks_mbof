@@ -68,8 +68,5 @@
         }
 
     }];
-
-
-    
     mbofuiApp.directive('mbofMap', mbofMapLocation);
 }());
