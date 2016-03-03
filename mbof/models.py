@@ -15,7 +15,7 @@ class Role(models.Model):
 
 @python_2_unicode_compatible
 class User(models.Model):
-    loginName = models.CharField(max_length=80, unique=True)
+    loginName = models.CharField(max_length=80, primary_key=True)
     displayName = models.CharField(max_length=120)
     surname = models.CharField(max_length=50)
     givenName = models.CharField(max_length=50)
@@ -23,7 +23,7 @@ class User(models.Model):
     roles = models.ForeignKey(Role, null=True)
 
     def __str__(self):
-        return str(self.loginName) + ' (' + self.__class__.__name__ + ': ' + str(self.id) + ')'
+        return str(self.loginName) + ' (' + self.__class__.__name__ + ': ' + str(self.loginName) + ')'
 
 
 @python_2_unicode_compatible
