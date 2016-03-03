@@ -28,6 +28,7 @@ router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
     url(r'^api/', include(router.urls)),
+    url(r'^api/me/*', views.remoteUser),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     url(r'^mbof/', include(mbof.urls)),

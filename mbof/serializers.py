@@ -11,7 +11,9 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class MessageSerializer(serializers.HyperlinkedModelSerializer):
+    owner = UserSerializer()
+
     class Meta:
         model = Message
-        fields = ('url', 'messageText', 'latitude', 'longitude', 'altitudeMeters', 'postingTime', 'startTime',
+        fields = ('url', 'messageText', 'latitude', 'longitude', 'altitudeMeters', 'owner', 'postingTime', 'startTime',
                   'endTime',)
