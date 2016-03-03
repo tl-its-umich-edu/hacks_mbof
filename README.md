@@ -17,7 +17,12 @@ If you know M-BoF, you don't need to know anything else.
     - `cd /vagrant`
     - `python manage.py migrate`
     - `python manage.py loaddata mbof/fixtures/dev_data.json`
-    - `python manage.py runserver`
+    - Run the development app server
+        - _**Without**_ remote user specified
+            - `python manage.py runserver`
+        - _**With**_ remote user specified
+            - `sh runAsUser.sh bjensen`
+                - `bjensen` is a user included in the test data.  Others are available.  For the purposes of the HWF event, use only known users.
 0. Browse to...
     - M-BoF homepage: [http://localhost:18000/](http://localhost:18000/)
     - REST API
