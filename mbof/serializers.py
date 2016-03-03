@@ -4,11 +4,6 @@ from .models import Message, User
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    # url = serializers.HyperlinkedIdentityField(
-    #         view_name='user-view-set',
-    #         lookup_field='loginName'
-    # )
-
     class Meta:
         model = User
         # FIXME: problem with 'roles' in 'fields'
