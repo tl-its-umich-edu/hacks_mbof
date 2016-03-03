@@ -1,4 +1,6 @@
-from django.http import HttpResponse
+import os
+
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404
 from rest_framework import viewsets
 
@@ -26,6 +28,10 @@ def results(request, messageId):
 
 def vote(request, messageId):
     return HttpResponse("You're voting on message %s." % messageId)
+
+
+def remoteUser(request):
+    return JsonResponse({'remoteUser': os.getenv('REMOTE_USER')})
 
 
 class UserViewSet(viewsets.ModelViewSet):
