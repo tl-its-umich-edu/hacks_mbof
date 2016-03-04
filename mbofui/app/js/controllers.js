@@ -41,7 +41,7 @@ mbofuiApp.controller('mbofuiAppController', ['$scope', 'Bof', '$log', '$window',
                 });
                 var iconFile = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'; 
                 marker.setIcon(iconFile);
-                var $markerContent = ('<div class="voteControls"><br><div class="pull-left">Votes: <span class="voteNum">0</span></div><div class="pull-right btn-group"><button class="btn btn-primary btn-xs up" data_vote="-1" data_id="' + bof.url + '" onclick="vote(event)"><span class="glyphicon glyphicon-thumbs-down"></span></button>&nbsp;<button class="btn btn-primary btn-xs" data_vote="+1" data_id="' + bof.url + '"onclick="vote(event)"><span class="glyphicon glyphicon-thumbs-up"></span></button></div></div>');
+                var $markerContent = ('<div class="voteControls"><br><div class="pull-left">Votes: <span class="voteNum">' + bof.votes + '</span></div><div class="pull-right btn-group"><button class="btn btn-primary btn-xs up" data_vote="-1" data_id="' + bof.url + '" onclick="vote(event)"><span class="glyphicon glyphicon-thumbs-down"></span></button>&nbsp;<button class="btn btn-primary btn-xs" data_vote="+1" data_id="' + bof.url + '"onclick="vote(event)"><span class="glyphicon glyphicon-thumbs-up"></span></button></div></div>');
                 google.maps.event.addListener(marker, 'click', function() {
                     var infowindow = new google.maps.InfoWindow({
                         content: bof.messageText + $markerContent
