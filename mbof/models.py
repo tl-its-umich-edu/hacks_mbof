@@ -47,7 +47,7 @@ class Message(models.Model):
     postingTime = models.DateTimeField(editable=False, blank=True)
     startTime = models.DateTimeField(blank=True)
     endTime = models.DateTimeField(blank=True)
-    owner = models.ForeignKey(User, default=currentUserLoginName())
+    owner = models.ForeignKey(User, default=currentUserLoginName, editable=False)
     participantCount = models.IntegerField(default=0)
     hashtag = models.CharField(max_length=40, null=True)
 
