@@ -72,7 +72,7 @@ class Vote(models.Model):
     VOTE_PLUS = '+1'
     VOTE_MINUS = '-1'
     message = models.ForeignKey(Message)
-    voter = models.ForeignKey(User)
+    voter = models.ForeignKey(User, default=currentUserLoginName, editable=False)
     vote = models.CharField(max_length=2, choices=(
         (VOTE_PLUS, VOTE_PLUS),
         (VOTE_MINUS, VOTE_MINUS),
