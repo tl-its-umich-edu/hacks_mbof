@@ -71,14 +71,14 @@ class Message(models.Model):
 
     @property
     def votes(self):
-        x = reduce(
+        voteTotal = reduce(
                 lambda sum, vote: sum + (
                     1 if vote.vote == Vote.VOTE_PLUS else (
                         -1 if vote.vote == Vote.VOTE_MINUS else 0)),
                 Vote.objects.filter(message=self),
                 0
         )
-        return x
+        return voteTotal
 
     def __str__(self):
         return str(self.messageText) + ' (' + self.__class__.__name__ + ': ' + str(self.id) + ')'
