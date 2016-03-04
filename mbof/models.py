@@ -75,7 +75,7 @@ class Message(models.Model):
 class Vote(models.Model):
     VOTE_PLUS = '+1'
     VOTE_MINUS = '-1'
-    VOTE_NONE = 'NA'
+    VOTE_NONE = '0'
     message = models.ForeignKey(Message)
     voter = models.ForeignKey(User, default=currentUserObject, editable=False)
     vote = models.CharField(max_length=2, choices=(
