@@ -15,6 +15,7 @@ def currentUserLoginName():
     # FIXME: Would like to do this in save() method, but that causes errors
     return os.getenv('REMOTE_USER')
 
+
 def currentUserObject():
     # FIXME: Would like to do this in save() method, but that causes errors
     return User.objects.get(loginName=os.getenv('REMOTE_USER'))
@@ -37,6 +38,19 @@ class User(models.Model):
     givenName = models.CharField(max_length=50)
     aboutMe = models.CharField(max_length=2000, null=True)
     roles = models.ForeignKey(Role, null=True)
+
+    @property
+    def reputation(self):
+        rep = 0
+        messages = Message.objects.filter(owner=self)
+        for m in messages:
+            votes = Vote.objects.filter(message=m)
+            for vote in votes:
+                if vote.vote == '+1':
+                    rep = rep + 1
+                if vote.vote == '-1':
+                    rep = rep - 1
+        return rep
 
     def __str__(self):
         return str(self.loginName) + ' (' + self.__class__.__name__ + ': ' + str(self.loginName) + ')'

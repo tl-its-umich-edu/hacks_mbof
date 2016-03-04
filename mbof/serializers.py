@@ -11,7 +11,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
         # FIXME: problem with 'roles' in 'fields'
-        fields = ('url', 'loginName', 'displayName', 'aboutMe',)
+        fields = ('url', 'loginName', 'displayName', 'aboutMe', 'reputation',)
 
 
 class MessageSerializer(serializers.HyperlinkedModelSerializer):
