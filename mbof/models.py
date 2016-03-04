@@ -15,6 +15,10 @@ def currentUserLoginName():
     # FIXME: Would like to do this in save() method, but that causes errors
     return os.getenv('REMOTE_USER')
 
+def currentUserObject():
+    # FIXME: Would like to do this in save() method, but that causes errors
+    return User.objects.get(loginName=os.getenv('REMOTE_USER'))
+
 
 @python_2_unicode_compatible
 class Role(models.Model):
@@ -82,12 +86,17 @@ class Message(models.Model):
 class Vote(models.Model):
     VOTE_PLUS = '+1'
     VOTE_MINUS = '-1'
+    VOTE_NONE = '0'
     message = models.ForeignKey(Message)
-    voter = models.ForeignKey(User, default=currentUserLoginName, editable=False)
+    voter = models.ForeignKey(User, default=currentUserObject, editable=False)
     vote = models.CharField(max_length=2, choices=(
         (VOTE_PLUS, VOTE_PLUS),
         (VOTE_MINUS, VOTE_MINUS),
+        (VOTE_NONE, VOTE_NONE),
     ))
+
+    class Meta:
+        unique_together = ('message', 'voter',)
 
     def __str__(self):
         return str(self.voter) + ' voted ' + str(self.vote) + ' on ' + str(
