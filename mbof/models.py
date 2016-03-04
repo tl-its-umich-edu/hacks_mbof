@@ -1,7 +1,19 @@
 from __future__ import unicode_literals
 
+import datetime
+import logging
+import os
+
 from django.db import models
+from django.utils import timezone
 from django.utils.encoding import python_2_unicode_compatible
+
+logger = logging.getLogger(__name__)
+
+
+def currentUserLoginName():
+    # FIXME: Would like to do this in save() method, but that causes errors
+    return os.getenv('REMOTE_USER')
 
 
 @python_2_unicode_compatible
@@ -32,15 +44,27 @@ class Message(models.Model):
     longitude = models.FloatField()
     altitudeMeters = models.FloatField()
     messageText = models.CharField(max_length=400)
-    postingTime = models.DateTimeField()
-    startTime = models.DateTimeField()
-    endTime = models.DateTimeField()
-    owner = models.ForeignKey(User)
+    postingTime = models.DateTimeField(editable=False, blank=True)
+    startTime = models.DateTimeField(blank=True)
+    endTime = models.DateTimeField(blank=True)
+    owner = models.ForeignKey(User, default=currentUserLoginName())
     participantCount = models.IntegerField(default=0)
     hashtag = models.CharField(max_length=40, null=True)
 
     def __str__(self):
         return str(self.messageText) + ' (' + self.__class__.__name__ + ': ' + str(self.id) + ')'
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        self.postingTime = timezone.now()
+
+        if (self.startTime is None):
+            self.startTime = self.postingTime
+
+        if (self.endTime is None):
+            self.endTime = self.startTime + datetime.timedelta(days=5)
+
+        return super(Message, self).save(force_insert, force_update, using, update_fields)
 
 
 @python_2_unicode_compatible
