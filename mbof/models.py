@@ -15,6 +15,7 @@ def currentUserLoginName():
     # FIXME: Would like to do this in save() method, but that causes errors
     return os.getenv('REMOTE_USER')
 
+
 def currentUserObject():
     # FIXME: Would like to do this in save() method, but that causes errors
     return User.objects.get(loginName=os.getenv('REMOTE_USER'))
@@ -68,6 +69,17 @@ class Message(models.Model):
     participantCount = models.IntegerField(default=0)
     hashtag = models.CharField(max_length=40, null=True)
 
+    @property
+    def votes(self):
+        voteTotal = reduce(
+                lambda sum, vote: sum + (
+                    1 if vote.vote == Vote.VOTE_PLUS else (
+                        -1 if vote.vote == Vote.VOTE_MINUS else 0)),
+                Vote.objects.filter(message=self),
+                0
+        )
+        return voteTotal
+
     def __str__(self):
         return str(self.messageText) + ' (' + self.__class__.__name__ + ': ' + str(self.id) + ')'
 
@@ -101,4 +113,5 @@ class Vote(models.Model):
         unique_together = ('message', 'voter',)
 
     def __str__(self):
-        return str(self.message) + ' (' + self.__class__.__name__ + ': ' + str(self.id) + ')'
+        return str(self.voter) + ' voted ' + str(self.vote) + ' on ' + str(
+                self.message) + ' (' + self.__class__.__name__ + ': ' + str(self.id) + ')'
