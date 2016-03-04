@@ -1,7 +1,7 @@
 'use strict';
 /* global mbofuiApp, moment */
 
-mbofuiApp.controller('mbofuiAppController', ['$scope', 'Bof', '$log', '$window', function($scope, Bof, $log, $window) {
+mbofuiApp.controller('mbofuiAppController', ['$scope', 'Bof', '$log', '$window', '$compile', function($scope, Bof, $log, $window, $compile) {
 
 
     var pos = $window.navigator.geolocation.getCurrentPosition(posSuccess, posError);
@@ -40,12 +40,13 @@ mbofuiApp.controller('mbofuiAppController', ['$scope', 'Bof', '$log', '$window',
                     map: window.map
                 });
                 var iconFile = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'; 
-                marker.setIcon(iconFile) 
-                
+                marker.setIcon(iconFile);
+                var $markerContent = ('<div class="voteControls"><br><div class="pull-left">Votes: <span class="voteNum">0</span></div><div class="pull-right btn-group"><button class="btn btn-primary btn-xs up" data_vote="-1" data_id="' + bof.url + '" onclick="vote(event)"><span class="glyphicon glyphicon-thumbs-down"></span></button>&nbsp;<button class="btn btn-primary btn-xs" data_vote="+1" data_id="' + bof.url + '"onclick="vote(event)"><span class="glyphicon glyphicon-thumbs-up"></span></button></div></div>');
                 google.maps.event.addListener(marker, 'click', function() {
                     var infowindow = new google.maps.InfoWindow({
-                        content: bof.messageText
+                        content: bof.messageText + $markerContent
                     });
+                    
                     infowindow.open(map, marker);
                 });
 
@@ -54,8 +55,15 @@ mbofuiApp.controller('mbofuiAppController', ['$scope', 'Bof', '$log', '$window',
             });
 
         });
-     }   
-    
+     }
+
+// placeholder for angular impl
+
+/*     $scope.vote = function(which){
+        alert(which)
+        $log.info(which)
+     }
+*/    
     $scope.postBof = function(map) {
         var pos = $window.navigator.geolocation.getCurrentPosition(posSuccess, posError);
 
