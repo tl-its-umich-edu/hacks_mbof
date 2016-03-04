@@ -38,6 +38,19 @@ class User(models.Model):
     aboutMe = models.CharField(max_length=2000, null=True)
     roles = models.ForeignKey(Role, null=True)
 
+    @property
+    def reputation(self):
+        rep = 0
+        messages = Message.objects.filter(owner=self)
+        for m in messages:
+            votes = Vote.objects.filter(message=m)
+            for vote in votes:
+                if vote.vote == '+1':
+                    rep = rep + 1
+                if vote.vote == '-1':
+                    rep = rep - 1
+        return rep
+
     def __str__(self):
         return str(self.loginName) + ' (' + self.__class__.__name__ + ': ' + str(self.loginName) + ')'
 
@@ -88,4 +101,4 @@ class Vote(models.Model):
         unique_together = ('message', 'voter',)
 
     def __str__(self):
-        return str(self.messageText) + ' (' + self.__class__.__name__ + ': ' + str(self.id) + ')'
+        return str(self.message) + ' (' + self.__class__.__name__ + ': ' + str(self.id) + ')'
