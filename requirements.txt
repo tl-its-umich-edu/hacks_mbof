@@ -5,4 +5,3 @@ django-filter
 django-crispy-forms
 python-ldap
 requests
-python-dateutil
