@@ -32,7 +32,7 @@ mbofuiApp.controller('mbofuiAppController', ['$scope', 'Bof', '$log', '$window',
     function getBofs(map) {
         var bofsUrl = '/api/messages/'
         Bof.GetBofs(bofsUrl).then(function(result) {
-        
+
             $scope.totalBofs = result.data.results.length;
             angular.forEach(result.data.results, function(bof) {
                 var marker = new google.maps.Marker({
@@ -89,7 +89,7 @@ mbofuiApp.controller('mbofuiAppController', ['$scope', 'Bof', '$log', '$window',
                     });
                     infowindow.open(window.map, marker);
                 });
-
+                $scope.totalBofs = $scope.totalBofs + 1;
 
                 var iconFile = 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'; 
                 marker.setIcon(iconFile); 
