@@ -4,8 +4,8 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404
 from rest_framework import viewsets
 
-from .models import Message, User
-from .serializers import MessageSerializer, UserSerializer
+from .models import Message, User, Vote
+from .serializers import MessageSerializer, UserSerializer, VoteSerializer
 
 
 def index(request):
@@ -48,3 +48,10 @@ class MessageViewSet(viewsets.ModelViewSet):
     """
     queryset = Message.objects.all().order_by('postingTime')
     serializer_class = MessageSerializer
+
+class VoteViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Vote.objects.all()
+    serializer_class = VoteSerializer
