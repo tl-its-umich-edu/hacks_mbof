@@ -18,9 +18,10 @@ class MessageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Message
         fields = ('url', 'messageText', 'latitude', 'longitude', 'altitudeMeters', 'owner', 'postingTime', 'startTime',
-                  'endTime',)
+                  'endTime', 'hashtag',)
+
 
 class VoteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Vote
-        fields = ('vote','voter','message')
+        fields = ('vote', 'voter', 'message')
