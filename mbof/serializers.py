@@ -1,5 +1,4 @@
 import logging
-import os
 
 from rest_framework import serializers
 
@@ -20,8 +19,3 @@ class MessageSerializer(serializers.HyperlinkedModelSerializer):
         model = Message
         fields = ('url', 'messageText', 'latitude', 'longitude', 'altitudeMeters', 'owner', 'postingTime', 'startTime',
                   'endTime',)
-
-    def is_valid(self, raise_exception=False):
-        # FIXME: This method of setting the owner URL seems hackish.  Find the right way.
-        self.initial_data[u'owner'] = u'http://localhost:18000/api/users/%s/' % os.getenv('REMOTE_USER')
-        return super(MessageSerializer, self).is_valid(raise_exception)

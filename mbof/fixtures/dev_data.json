@@ -68,8 +68,8 @@
     "model": "mbof.message",
     "pk": 1,
     "fields": {
-        "latitude": 42.277306,
-        "longitude": 96.256722,
+        "latitude": 42.2795454,
+        "longitude": -83.7362367,
         "altitudeMeters": 254.0,
         "messageText": "Watching for Vogons",
         "postingTime": "2016-02-22T20:50:58Z",
