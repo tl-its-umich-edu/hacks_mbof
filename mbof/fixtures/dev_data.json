@@ -127,5 +127,66 @@
         "participantCount": 0,
         "hashtag": "#botany"
     }
+},
+{
+    "model": "mbof.message",
+    "pk": 5,
+    "fields": {
+        "latitude": 42.300933837890625,
+        "longitude": -83.7049789428711,
+        "altitudeMeters": 52.0,
+        "messageText": "Hacks With Friends ",
+        "postingTime": "2016-03-04T14:35:05.718Z",
+        "startTime": "2017-01-01T04:59:00Z",
+        "endTime": "2017-01-01T04:59:00Z",
+        "owner": "bjensen",
+        "participantCount": 0,
+        "hashtag": null
+    }
+},
+{
+    "model": "mbof.vote",
+    "pk": 1,
+    "fields": {
+        "message": 5,
+        "voter": "bjensen",
+        "vote": "+1"
+    }
+},
+{
+    "model": "mbof.vote",
+    "pk": 2,
+    "fields": {
+        "message": 5,
+        "voter": "fordp",
+        "vote": "+1"
+    }
+},
+{
+    "model": "mbof.vote",
+    "pk": 3,
+    "fields": {
+        "message": 5,
+        "voter": "dpgumby",
+        "vote": "+1"
+    }
+},
+{
+    "model": "mbof.vote",
+    "pk": 6,
+    "fields": {
+        "message": 4,
+        "voter": "bjensen",
+        "vote": "+1"
+    }
+},
+{
+    "model": "mbof.vote",
+    "pk": 7,
+    "fields": {
+        "message": 2,
+        "voter": "bjensen",
+        "vote": "-1"
+    }
 }
 ]
