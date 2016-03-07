@@ -68,8 +68,8 @@
     "model": "mbof.message",
     "pk": 1,
     "fields": {
-        "latitude": 42.2795454,
-        "longitude": -83.7362367,
+        "latitude": 42.2819709777832,
+        "longitude": -83.731689453125,
         "altitudeMeters": 254.0,
         "messageText": "Watching for Vogons",
         "postingTime": "2016-02-22T20:50:58Z",
@@ -145,6 +145,406 @@
     }
 },
 {
+    "model": "mbof.message",
+    "pk": 6,
+    "fields": {
+        "latitude": 42.300659200000005,
+        "longitude": -83.705218,
+        "altitudeMeters": 34.0,
+        "messageText": "asdf",
+        "postingTime": "2016-03-04T15:24:58.000Z",
+        "startTime": "2016-03-04T15:24:58.000Z",
+        "endTime": "2016-03-09T15:24:58.000Z",
+        "owner": "bjensen",
+        "participantCount": 0,
+        "hashtag": null
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 7,
+    "fields": {
+        "latitude": 42.300659200000005,
+        "longitude": -83.705218,
+        "altitudeMeters": 34.0,
+        "messageText": "asdf",
+        "postingTime": "2016-03-04T15:40:34.501Z",
+        "startTime": "2016-03-04T15:40:34.501Z",
+        "endTime": "2016-03-09T15:40:34.501Z",
+        "owner": "bjensen",
+        "participantCount": 0,
+        "hashtag": null
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 8,
+    "fields": {
+        "latitude": 41.8006591796875,
+        "longitude": -82.10521697998047,
+        "altitudeMeters": 34.0,
+        "messageText": "asdf",
+        "postingTime": "2016-03-04T15:24:58.000Z",
+        "startTime": "2016-03-04T15:24:58.000Z",
+        "endTime": "2016-03-09T15:24:58.000Z",
+        "owner": "bjensen",
+        "participantCount": 0,
+        "hashtag": null
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 9,
+    "fields": {
+        "latitude": 42.27804183959961,
+        "longitude": -83.73822784423828,
+        "altitudeMeters": 264.9533386230469,
+        "messageText": "Campus Center",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "fordp",
+        "participantCount": 1,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 10,
+    "fields": {
+        "latitude": 42.279876708984375,
+        "longitude": -83.73289489746094,
+        "altitudeMeters": 264.9691467285156,
+        "messageText": "Lorem",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "bjensen",
+        "participantCount": 2,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 11,
+    "fields": {
+        "latitude": 42.28074645996094,
+        "longitude": -83.73709869384766,
+        "altitudeMeters": 264.4632873535156,
+        "messageText": "ipsum",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "bjensen",
+        "participantCount": 3,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 12,
+    "fields": {
+        "latitude": 42.27775573730469,
+        "longitude": -83.7369384765625,
+        "altitudeMeters": 266.6853332519531,
+        "messageText": "dolor",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "dpgumby",
+        "participantCount": 4,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 13,
+    "fields": {
+        "latitude": 42.277099609375,
+        "longitude": -83.73506927490234,
+        "altitudeMeters": 264.4520263671875,
+        "messageText": "sit",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "bjensen",
+        "participantCount": 5,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 14,
+    "fields": {
+        "latitude": 42.279541015625,
+        "longitude": -83.736083984375,
+        "altitudeMeters": 265.6742248535156,
+        "messageText": "amet",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "bjensen",
+        "participantCount": 6,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 15,
+    "fields": {
+        "latitude": 42.279808044433594,
+        "longitude": -83.73837280273438,
+        "altitudeMeters": 267.9234924316406,
+        "messageText": "consectetur",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "bjensen",
+        "participantCount": 7,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 16,
+    "fields": {
+        "latitude": 42.27598190307617,
+        "longitude": -83.73609924316406,
+        "altitudeMeters": 263.543212890625,
+        "messageText": "adipiscing",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "bjensen",
+        "participantCount": 8,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 17,
+    "fields": {
+        "latitude": 42.27983856201172,
+        "longitude": -83.73870849609375,
+        "altitudeMeters": 264.9010314941406,
+        "messageText": "elit",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "fordp",
+        "participantCount": 9,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 18,
+    "fields": {
+        "latitude": 42.275733947753906,
+        "longitude": -83.74217987060547,
+        "altitudeMeters": 263.6704406738281,
+        "messageText": "Suspendisse",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "bjensen",
+        "participantCount": 10,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 19,
+    "fields": {
+        "latitude": 42.275718688964844,
+        "longitude": -83.73487091064453,
+        "altitudeMeters": 264.81451416015625,
+        "messageText": "consequat",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "bjensen",
+        "participantCount": 11,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 20,
+    "fields": {
+        "latitude": 42.2757453918457,
+        "longitude": -83.73799896240234,
+        "altitudeMeters": 268.45916748046875,
+        "messageText": "fermentum",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "dpgumby",
+        "participantCount": 12,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 21,
+    "fields": {
+        "latitude": 42.280052185058594,
+        "longitude": -83.74127960205078,
+        "altitudeMeters": 264.4952087402344,
+        "messageText": "mauris",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "fordp",
+        "participantCount": 13,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 22,
+    "fields": {
+        "latitude": 42.27702331542969,
+        "longitude": -83.73934936523438,
+        "altitudeMeters": 266.1491394042969,
+        "messageText": "sit",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "bjensen",
+        "participantCount": 14,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 23,
+    "fields": {
+        "latitude": 42.27747344970703,
+        "longitude": -83.74046325683594,
+        "altitudeMeters": 266.3511047363281,
+        "messageText": "amet",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "bjensen",
+        "participantCount": 15,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 24,
+    "fields": {
+        "latitude": 42.27822494506836,
+        "longitude": -83.73497009277344,
+        "altitudeMeters": 265.78485107421875,
+        "messageText": "tincidunt",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "dpgumby",
+        "participantCount": 16,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 25,
+    "fields": {
+        "latitude": 42.280860900878906,
+        "longitude": -83.74221801757812,
+        "altitudeMeters": 266.75274658203125,
+        "messageText": "risus",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "bjensen",
+        "participantCount": 17,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 26,
+    "fields": {
+        "latitude": 42.277809143066406,
+        "longitude": -83.73786163330078,
+        "altitudeMeters": 263.94195556640625,
+        "messageText": "auctor",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "bjensen",
+        "participantCount": 18,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 27,
+    "fields": {
+        "latitude": 42.27994918823242,
+        "longitude": -83.74169921875,
+        "altitudeMeters": 268.8115234375,
+        "messageText": "et",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "bjensen",
+        "participantCount": 19,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 28,
+    "fields": {
+        "latitude": 42.27943801879883,
+        "longitude": -83.73346710205078,
+        "altitudeMeters": 264.5925598144531,
+        "messageText": "Morbi",
+        "postingTime": null,
+        "startTime": null,
+        "endTime": null,
+        "owner": "bjensen",
+        "participantCount": 20,
+        "hashtag": "#sampleData"
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 29,
+    "fields": {
+        "latitude": 42.270552699999996,
+        "longitude": -83.59093589999999,
+        "altitudeMeters": 78.0,
+        "messageText": "Watching dogs",
+        "postingTime": "2016-03-04T22:43:20.242Z",
+        "startTime": "2016-03-04T22:43:20Z",
+        "endTime": "2016-03-04T22:43:20Z",
+        "owner": "bjensen",
+        "participantCount": 0,
+        "hashtag": null
+    }
+},
+{
+    "model": "mbof.message",
+    "pk": 30,
+    "fields": {
+        "latitude": 42.2697429,
+        "longitude": -83.7470664,
+        "altitudeMeters": 30.0,
+        "messageText": "M-BoF HWF demo w/ John",
+        "postingTime": "2016-03-07T15:12:59.568Z",
+        "startTime": "2016-03-07T15:12:59Z",
+        "endTime": "2016-03-07T15:12:59Z",
+        "owner": "fordp",
+        "participantCount": 0,
+        "hashtag": null
+    }
+},
+{
     "model": "mbof.vote",
     "pk": 1,
     "fields": {
@@ -187,6 +587,69 @@
         "message": 2,
         "voter": "bjensen",
         "vote": "-1"
+    }
+},
+{
+    "model": "mbof.vote",
+    "pk": 8,
+    "fields": {
+        "message": 1,
+        "voter": "bjensen",
+        "vote": "+1"
+    }
+},
+{
+    "model": "mbof.vote",
+    "pk": 9,
+    "fields": {
+        "message": 3,
+        "voter": "bjensen",
+        "vote": "+1"
+    }
+},
+{
+    "model": "mbof.vote",
+    "pk": 10,
+    "fields": {
+        "message": 21,
+        "voter": "bjensen",
+        "vote": "+1"
+    }
+},
+{
+    "model": "mbof.vote",
+    "pk": 11,
+    "fields": {
+        "message": 22,
+        "voter": "bjensen",
+        "vote": "-1"
+    }
+},
+{
+    "model": "mbof.vote",
+    "pk": 12,
+    "fields": {
+        "message": 29,
+        "voter": "bjensen",
+        "vote": "+1"
+    }
+},
+{
+    "model": "mbof.vote",
+    "pk": 13,
+    "fields": {
+        "message": 29,
+        "voter": "fordp",
+        "vote": "+1"
+    }
+},
+{
+    "model": "mbof.vote",
+    "pk": 14,
+    "fields": {
+        "message": 30,
+        "voter": "fordp",
+        "vote": "+1"
     }
 }
 ]
