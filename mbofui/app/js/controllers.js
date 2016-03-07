@@ -32,9 +32,10 @@ mbofuiApp.controller('mbofuiAppController', ['$scope', 'Bof', '$log', '$window',
     function getBofs(map) {
         var bofsUrl = '/api/messages/'
         Bof.GetBofs(bofsUrl).then(function(result) {
-
-            $scope.totalBofs = result.data.results.length;
-            angular.forEach(result.data.results, function(bof) {
+            // FIXME: Add support for Django REST pagination, if it's enabled.
+            var bofResults = result.data.results || result.data; // with or without REST pagination
+            $scope.totalBofs = bofResults.length;
+            angular.forEach(bofResults, function(bof) {
                 var marker = new google.maps.Marker({
                     position: { lat: bof.latitude, lng: bof.longitude },
                     map: window.map
