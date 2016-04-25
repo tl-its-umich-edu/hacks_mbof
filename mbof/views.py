@@ -39,19 +39,29 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class CurrentUserViewSet(UserViewSet):
+    """
+    API endpoint that gives details about the current user.
+    """
     queryset = User.objects.filter(loginName=os.getenv('REMOTE_USER')).order_by('surname')
 
 
 class MessageViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint that allows messages to be viewed (oldest first) or edited.
     """
     queryset = Message.objects.all().order_by('postingTime')
     serializer_class = MessageSerializer
 
+class RecentMessageViewSet(MessageViewSet):
+    """
+    API endpoint that allows messages to be viewed (newest first) or edited.
+    """
+    queryset = Message.objects.all().order_by('-postingTime')
+
+
 class VoteViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint that allows votes to be viewed or edited.
     """
     queryset = Vote.objects.all()
     serializer_class = VoteSerializer
