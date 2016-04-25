@@ -23,7 +23,8 @@ import mbof.urls
 from mbof import views
 
 router = routers.DefaultRouter()
-router.register(r'me', views.CurrentUserViewSet)
+router.register(r'me', views.CurrentUserViewSet, base_name='me')
+router.register(r'recent_messages', views.RecentMessageViewSet, base_name='recent_messages')
 router.register(r'messages', views.MessageViewSet)
 router.register(r'users', views.UserViewSet)
 router.register(r'votes', views.VoteViewSet)
