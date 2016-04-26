@@ -1,6 +1,6 @@
 import os
 
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from rest_framework import viewsets
 
@@ -42,7 +42,16 @@ class CurrentUserViewSet(UserViewSet):
     """
     API endpoint that gives details about the current user.
     """
-    queryset = User.objects.filter(loginName=os.getenv('REMOTE_USER')).order_by('surname')
+
+    def get_queryset(self):
+        """
+        Defining queryset as a method, because it's required when using dynamic expressions,
+        like the value used in `filter()`, which changes with each request.
+
+        :returns: User object which represents the current remote user
+
+        """
+        return User.objects.filter(loginName=os.getenv('REMOTE_USER'))
 
 
 class MessageViewSet(viewsets.ModelViewSet):
@@ -52,9 +61,12 @@ class MessageViewSet(viewsets.ModelViewSet):
     queryset = Message.objects.all().order_by('postingTime')
     serializer_class = MessageSerializer
 
+
 class RecentMessageViewSet(MessageViewSet):
     """
     API endpoint that allows messages to be viewed (newest first) or edited.
+
+    Notice it's a subclass of `MessageViewSet`, not `viewsets.ModelViewSet`.
     """
     queryset = Message.objects.all().order_by('-postingTime')
 
