@@ -1,6 +1,6 @@
 import os
 
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from rest_framework import viewsets
 
@@ -39,19 +39,41 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class CurrentUserViewSet(UserViewSet):
-    queryset = User.objects.filter(loginName=os.getenv('REMOTE_USER')).order_by('surname')
+    """
+    API endpoint that gives details about the current user.
+    """
+
+    def get_queryset(self):
+        """
+        Defining queryset as a method, because it's required when using dynamic expressions,
+        like the value used in `filter()`, which changes with each request.
+
+        :returns: User object which represents the current remote user
+
+        """
+        return User.objects.filter(loginName=os.getenv('REMOTE_USER'))
 
 
 class MessageViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint that allows messages to be viewed (oldest first) or edited.
     """
     queryset = Message.objects.all().order_by('postingTime')
     serializer_class = MessageSerializer
 
+
+class RecentMessageViewSet(MessageViewSet):
+    """
+    API endpoint that allows messages to be viewed (newest first) or edited.
+
+    Notice it's a subclass of `MessageViewSet`, not `viewsets.ModelViewSet`.
+    """
+    queryset = Message.objects.all().order_by('-postingTime')
+
+
 class VoteViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint that allows votes to be viewed or edited.
     """
     queryset = Vote.objects.all()
     serializer_class = VoteSerializer
