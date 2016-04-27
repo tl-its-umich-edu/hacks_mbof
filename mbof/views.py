@@ -1,33 +1,9 @@
 import os
 
-from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
 from rest_framework import viewsets
 
-from .models import Message, User, Vote
-from .serializers import MessageSerializer, UserSerializer, VoteSerializer
-
-
-def index(request):
-    return render(request, 'messages/index.html', {
-        'latestMessageList': Message.objects.order_by('-postingTime'),
-    })
-
-
-def detail(request, messageId):
-    message = get_object_or_404(Message, pk=messageId)
-    return render(request, 'messages/detail.html', {
-        'message': message,
-    })
-
-
-def results(request, messageId):
-    response = "You're looking at the results of message %s."
-    return HttpResponse(response % messageId)
-
-
-def vote(request, messageId):
-    return HttpResponse("You're voting on message %s." % messageId)
+from .models import Event, User, Vote
+from .serializers import EventSerializer, UserSerializer, VoteSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -54,21 +30,21 @@ class CurrentUserViewSet(UserViewSet):
         return User.objects.filter(loginName=os.getenv('REMOTE_USER'))
 
 
-class MessageViewSet(viewsets.ModelViewSet):
+class EventViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows messages to be viewed (oldest first) or edited.
+    API endpoint that allows events to be viewed (oldest first) or edited.
     """
-    queryset = Message.objects.all().order_by('postingTime')
-    serializer_class = MessageSerializer
+    queryset = Event.objects.all().order_by('postingTime')
+    serializer_class = EventSerializer
 
 
-class RecentMessageViewSet(MessageViewSet):
+class RecentEventViewSet(EventViewSet):
     """
-    API endpoint that allows messages to be viewed (newest first) or edited.
+    API endpoint that allows events to be viewed (newest first) or edited.
 
-    Notice it's a subclass of `MessageViewSet`, not `viewsets.ModelViewSet`.
+    Notice it's a subclass of `EventViewSet`, not `viewsets.ModelViewSet`.
     """
-    queryset = Message.objects.all().order_by('-postingTime')
+    queryset = Event.objects.all().order_by('-postingTime')
 
 
 class VoteViewSet(viewsets.ModelViewSet):
